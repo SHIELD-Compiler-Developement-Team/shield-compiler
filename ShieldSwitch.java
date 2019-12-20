@@ -89,6 +89,8 @@ public class ShieldSwitch
 	// Analagous to "dir" for directory listing
 	private static void dirSwitch(String st) {
 		System.out.println();
+		
+		// General File Listing
 		if(st.equals("dir")) {
 			File[] f = listFiles(Settings.path);
 			for(int i = 0; i < f.length; i++) {
@@ -96,6 +98,8 @@ public class ShieldSwitch
 			}
 			return;
 		}
+		
+		// File Listing of a specific extension
 		int indexd = st.indexOf(' ');
 		String args = st.substring(indexd+1);
 		if(args.equals("*")) {
@@ -114,6 +118,8 @@ public class ShieldSwitch
 			}
 			return;
 		}
+		
+		// File Listing of a subfolder
 		String tpath = Settings.path + "/" + args;
 		File ndir= new File(tpath);
 		if(!ndir.isDirectory() || !ndir.exists()) {
