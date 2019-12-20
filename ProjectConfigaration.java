@@ -1,31 +1,73 @@
+/*
+ * Part of Rubidium Projects
+ * General Public Licence v3.0, 2019
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
 import java.util.*;
 
+/**
+* Holds Currently opened Project Configaration
+*
+*/
 public class ProjectConfigaration
 {
+	// Actual Read Data
 	private Vector<String> conf;
 	
+	// Configaration File Name Reference
 	private String pconf;
 	
+	// Project Name
 	private String pname;
 	
+	// Project Root
 	private String proot;
 	
+	// Java Source
 	private String jsrc;
 	
+	// Java Source Actual Reference
 	private String jsrct;
 	
+	// Java Binaries
 	private String jbin;
 	
+	// Java Binaries Actual Reference
 	private String jbint;
 	
+	// Package Root
 	private String packroot;
 	
+	// Subpackages
 	private Vector<String> subpack;
 	
+	// Java Files
 	private Vector<String> jfiles;
 	
+	// Main Java File
 	private String executable;
 	
+	// Default Constructor
 	public ProjectConfigaration(String conf) {
 		pconf=conf;
 		StreamFileReader srd = new StreamFileReader(conf);
@@ -34,6 +76,8 @@ public class ProjectConfigaration
 		this.jfiles = new Vector<String>(1,1);
 		parse();
 	}
+	
+	// Get Methods
 	
 	public String getName() {
 		return pname;
@@ -67,15 +111,18 @@ public class ProjectConfigaration
 		return executable;
 	}
 	
+	// Exposed new class method
 	public void newJavaClass(String st) {
 		jfiles.addElement(st);
 	}
 	
+	// Exposed new subpackage method
 	public void newSubPackage(String st) {
 		subpack.addElement(st);
 	}
 	
-	public void parse() {
+	// Default Method
+	private void parse() {
 		String[] arr = new String[conf.size()];
 		for(int i = 0; i < arr.length; i++)
 			arr[i] = conf.elementAt(i);
@@ -118,6 +165,7 @@ public class ProjectConfigaration
 		}
 	}
 	
+	// Rewrite New Configaration to file
 	public void rewrite() {
 		Vector<String> nconf = new Vector<String>(1,1);
 		String tpath = "$DEF_PATH";
