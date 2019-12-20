@@ -63,7 +63,7 @@ public class ShieldSwitch
 	private static void cdSwitch(String st) {
 		// "cd" -> .. to previous directory
 		if(st.contains("..")) {
-			int nplaces = zeroED(st, '\\') + 2;
+			int nplaces = occuranceOf(st, '\\') + 2;
 			String tpath = Settings.path;
 			for(int i = 0; i < nplaces; i++) {
 				int idxo = tpath.lastIndexOf('\\');
@@ -184,7 +184,7 @@ public class ShieldSwitch
 	}
 	
 	// Occurance of 
-	public static int zeroED(String string, char c) 
+	public static int occuranceOf(String string, char c) 
 	{
 		int cd = 0;
 		for(int i = 0; i < string.length(); i++) if(string.charAt(i) == c) cd++;
@@ -192,7 +192,7 @@ public class ShieldSwitch
 	}
 	
 	// Replace Multiple Simultaneous Occurances
-	public static String oneEGH(String st, char ch) {
+	public static String multiReplace(String st, char ch) {
 		String r=" ";
 		for(int i = 0; i < st.length(); i++) {
 			char tobe = st.charAt(i);

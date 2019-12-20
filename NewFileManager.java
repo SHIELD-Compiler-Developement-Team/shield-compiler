@@ -26,7 +26,7 @@ public class NewFileManager {
 		for(int i = 0; i < contents.length; i++)
 			vcon.addElement(contents[i]);
 		String temp = p+"\\"+fn+".java";
-		StreamFileWriter sfw = new StreamFileWriter(ShieldSwitch.oneEGH(temp, '\\'), vcon);
+		StreamFileWriter sfw = new StreamFileWriter(ShieldSwitch.multiReplace(temp, '\\'), vcon);
 		sfw.write();
 	}
 }

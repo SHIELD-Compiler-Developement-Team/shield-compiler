@@ -84,19 +84,19 @@ public class ProjectConfigaration
 	}
 	
 	public String getProjectRoot() {
-		return ShieldSwitch.oneEGH(proot, '\\');
+		return ShieldSwitch.multiReplace(proot, '\\');
 	}
 	
 	public String getJSource() {
-		return ShieldSwitch.oneEGH(jsrc, '\\');
+		return ShieldSwitch.multiReplace(jsrc, '\\');
 	}
 	
 	public String getJBin() {
-		return ShieldSwitch.oneEGH(jbin, '\\');
+		return ShieldSwitch.multiReplace(jbin, '\\');
 	}
 	
 	public String getPRoot() {
-		return ShieldSwitch.oneEGH(packroot, '\\');
+		return ShieldSwitch.multiReplace(packroot, '\\');
 	}
 	
 	public Vector<String> getSubPackages() {

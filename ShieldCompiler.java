@@ -37,7 +37,7 @@ public class ShieldCompiler {
 	public static String[] clean() {
 		String[] r = new String[Settings.pconf.getJavaFiles().size()];
 		for(int i = 0; i < r.length; i++)
-			r[i]=ShieldSwitch.oneEGH(Settings.pconf.getJavaFiles().elementAt(i), '\\');
+			r[i]=ShieldSwitch.multiReplace(Settings.pconf.getJavaFiles().elementAt(i), '\\');
 		return r;
 	}
 	
@@ -49,12 +49,12 @@ public class ShieldCompiler {
 	}
 	
 	public static String getClean(String st) {
-		return ShieldSwitch.oneEGH(st, '\\');
+		return ShieldSwitch.multiReplace(st, '\\');
 	}
 	
 	public static String getCleanClasspath() {
 		String r = "";
-		String p = ShieldSwitch.oneEGH(Settings.pconf.getJBin(), '\\');
+		String p = ShieldSwitch.multiReplace(Settings.pconf.getJBin(), '\\');
 		p = replaceLast(p, '\\');
 		for(int i = p.lastIndexOf("\\")+1; i < p.length(); i++)
 			r+=p.charAt(i);
