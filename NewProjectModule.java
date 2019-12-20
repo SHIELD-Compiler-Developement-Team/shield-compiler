@@ -1,8 +1,43 @@
+/*
+ * Part of Rubidium Projects
+ * General Public Licence v3.0, 2019
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+ 
 import java.io.*;
 import java.util.Vector;
 
+/**
+ * Module to Handle New Project 
+ * Requests
+ *
+**/
 public class NewProjectModule {
 	
+	// Don't let anyone instantiate this class.
+	private NewProjectModule() {}
+	
+	
+	// New CLI Project
 	public static void commandLineNewProject(String st) 
 	{
 		if(st.indexOf(' ') == -1) {
@@ -33,6 +68,7 @@ public class NewProjectModule {
 		}
 	}
 	
+	// New Java Source File
 	public static void newFile(String st)
 	{
 		String fname="";
@@ -72,6 +108,7 @@ public class NewProjectModule {
 		Settings.pconf.newJavaClass(Settings.pconf.getJSource()+"\\"+pack+"\\"+fname);
 	}
 	
+	// Internal Method
 	public static void newProject(String pname, String jsrc, String jbin, String proot) 
 	{
 		String tpath = Settings.path;
